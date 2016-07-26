@@ -2,12 +2,14 @@
   <h2>Signed in via PassaporteWeb</h2>
 
   <div>
-    <!-- <a href="/explore/me.json" class="btn" data-explore>My Credentials</a> -->
-    <!-- <a href="/explore/profiles.json" class="btn" data-explore>Profiles</a> -->
     <a href="/sign_out" class="btn primary">Sign out</a>
   </div>
 
   <p>Your access token: <code><%= session[:access_token] %></code> (<a href="/refresh" title="<%= session[:refresh_token] %>">refresh</a>)</p>
+
+  <pre>
+<%= JSON.pretty_generate(session[:omniauth]) %>
+  </pre>
 
 <% else %>
   <h2>Sign in first to explore PassaporteWeb's API</h2>
