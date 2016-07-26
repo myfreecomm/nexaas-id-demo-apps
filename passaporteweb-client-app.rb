@@ -18,7 +18,7 @@ class PassaporteWebClientApp < Sinatra::Base
     end
   end
 
-  def client(token_method = :post)
+  def client
     OAuth2::Client.new(
       ENV['PASSAPORTEWEB_APP_ID'],
       ENV['PASSAPORTEWEB_APP_SECRET'],
@@ -45,6 +45,9 @@ class PassaporteWebClientApp < Sinatra::Base
 
   get '/sign_out' do
     session[:uid] = nil
+    session[:access_token]  = nil
+    session[:refresh_token] = nil
+    session[:omniauth] = nil
     redirect '/'
   end
 
@@ -60,7 +63,6 @@ class PassaporteWebClientApp < Sinatra::Base
 
   get '/refresh' do
     new_token = access_token.refresh!
-    logger.info ">>> Token: #{new_token.to_hash}"
     session[:access_token]  = new_token.token
     session[:refresh_token] = new_token.refresh_token
     redirect '/'
