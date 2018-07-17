@@ -1,0 +1,5 @@
+<h2>Welcome <%= current_user.name || current_user.email %></h2>
+
+<p><%= image_tag(current_user.picture_url) if current_user.picture_url.present? %></p>
+
+<p><%= link_to('Sign out', sign_out_path) %></p>

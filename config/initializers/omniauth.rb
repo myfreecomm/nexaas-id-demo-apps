@@ -4,5 +4,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :passaporte_web,
            ENV['PASSAPORTE_WEB_ID'],
            ENV['PASSAPORTE_WEB_SECRET'],
-           client_options: { site: ENV['PASSAPORTE_WEB_URL'] }
+           client_options: { site: ENV['PASSAPORTE_WEB_URL'] },
+           provider_ignores_state: true
 end
+
+

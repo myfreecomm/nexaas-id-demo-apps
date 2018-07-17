@@ -7,7 +7,9 @@ class OmniAuth::Strategies::PassaporteWeb < OmniAuth::Strategies::OAuth2
 
   info do
     {
-      email: raw_info['email']
+      email: raw_info['email'],
+      name: raw_info['name'],
+      picture_url: raw_info['picture_url'],
     }
   end
 
