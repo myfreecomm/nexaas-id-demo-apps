@@ -25,6 +25,14 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# OmniAuth is a flexible authentication system utilizing Rack middleware.
+# https://github.com/omniauth/omniauth
+gem 'omniauth', '~> 1.8'
+
+# An abstract OAuth2 strategy for OmniAuth.
+# https://github.com/omniauth/omniauth-oauth2
+gem 'omniauth-oauth2', '~> 1.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
