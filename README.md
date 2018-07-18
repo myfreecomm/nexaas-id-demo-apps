@@ -45,3 +45,4 @@ Your can provide these values in your environment file or change the existent .e
 Now start the application.
 
     bin/rails server
+
