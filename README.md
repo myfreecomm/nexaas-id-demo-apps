@@ -1,11 +1,13 @@
 # PassaporteWeb OmniAuth Client
 
-This application is an example of OAuth2 client. It was built in order to test
+This application is an example of OAuth2 client. It was built in order to test login with
 [PassaporteWeb 2](https://v2.passaporteweb.com.br/).
 
 It uses [Rails 5.2](http://github.com/rails/rails/) and the [OmniAuth](http://github.com/intridea/omniauth) gem.
 PassaporteWeb strategy is build on top of
-[abstract OAuth2 strategy for OmniAuth](https://github.com/intridea/omniauth-oauth2)
+[abstract OAuth2 strategy for OmniAuth](https://github.com/intridea/omniauth-oauth2).
+
+It requires Ruby version 2.5.1 or superior.
 
 ## Installation & Configuration
 
