@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # Protect resources from unauthenticated access
   before_action :require_authenticated_user
 
-  helper_method :current_user
+  helper_method :current_user, :passaporte_web_bar
 
   def current_user
     user_id = session[:current_user_id]
@@ -23,6 +23,12 @@ class ApplicationController < ActionController::Base
 
   def signed_in?
     current_user.present?
+  end
+
+  def passaporte_web_bar
+    response = RestClient.get("#{ENV['PASSAPORTE_WEB_URL']}/api/v1/widgets/navbar.js",
+      'Authorization': "Bearer #{current_user.token}")
+    render inline: response.body
   end
 
   private
