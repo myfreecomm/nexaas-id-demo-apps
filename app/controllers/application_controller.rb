@@ -26,8 +26,8 @@ class ApplicationController < ActionController::Base
   end
 
   def passaporte_web_bar
-    response = RestClient.get("#{ENV['PASSAPORTE_WEB_URL']}/api/v1/widgets/navbar.js",
-      'Authorization': "Bearer #{current_user.token}")
+    headers = signed_in? ? { 'Authorization': "Bearer #{current_user.token}" } : {}
+    response = RestClient.get("#{ENV['PASSAPORTE_WEB_URL']}/api/v1/widgets/navbar.js", headers)
     render inline: response.body
   end
 
