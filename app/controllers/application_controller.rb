@@ -26,8 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   def passaporte_web_bar
-    headers = signed_in? ? { 'Authorization': "Bearer #{current_user.token}" } : {}
-    response = RestClient.get("#{ENV['PASSAPORTE_WEB_URL']}/api/v1/widgets/navbar.js", headers)
+    connection = Faraday.new(url: ENV['PASSAPORTE_WEB_URL'])
+    response = connection.get('/api/v1/widgets/navbar.js') do |request|
+      request.headers['Authorization'] = "Bearer #{current_user.token}" if signed_in?
+    end
     render inline: response.body
   end
 
