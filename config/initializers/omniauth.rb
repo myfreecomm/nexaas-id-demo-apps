@@ -1,5 +1,3 @@
-require "#{Rails.root}/lib/omniauth/strategies/passaporte_web"
-
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :passaporte_web,
            ENV['PASSAPORTE_WEB_ID'],

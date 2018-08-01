@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # Protect resources from unauthenticated access
   before_action :require_authenticated_user
 
-  helper_method :current_user, :passaporte_web_bar
+  helper_method :current_user, :access_token
 
   def current_user
     user_id = session[:current_user_id]
@@ -25,12 +25,8 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  def passaporte_web_bar
-    connection = Faraday.new(url: ENV['PASSAPORTE_WEB_URL'])
-    response = connection.get('/api/v1/widgets/navbar.js') do |request|
-      request.headers['Authorization'] = "Bearer #{current_user.token}" if signed_in?
-    end
-    render inline: response.body
+  def access_token
+    current_user.token if signed_in?
   end
 
   private
