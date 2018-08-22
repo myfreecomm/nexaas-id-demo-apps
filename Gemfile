@@ -33,7 +33,7 @@ gem 'omniauth', '~> 1.8'
 # https://github.com/omniauth/omniauth-oauth2
 gem 'omniauth-oauth2', '~> 1.5'
 
-gem 'omniauth-passaporte_web', git: 'https://github.com/myfreecomm/omniauth-passaporte_web', branch: 'passaporte-web-v2'
+gem 'omniauth-nexaas_id', git: 'https://github.com/myfreecomm/omniauth-passaporte_web', branch: 'nexaas-id'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
