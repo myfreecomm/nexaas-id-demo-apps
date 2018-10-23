@@ -1,6 +1,6 @@
 # nexaas-id-demo-apps
 
-Collection of demo client apps for [Nexaas ID](https://id.nexaas.com) 2.
+Collection of demo client apps for [Nexaas ID](https://id.nexaas.com).
 
 Each branch has a different demo client app:
 
